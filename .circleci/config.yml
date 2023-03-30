@@ -1,0 +1,24 @@
+version: 2.1
+
+jobs:
+  run-lint:
+    docker:
+      - image: cimg/node:13.8.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys: [frontend-build]
+      - save_cache:
+          paths: [./venv]
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+      - run:
+          name: run lint
+          command: |
+            . venv/bin/activate
+            make lint
+            
+
+workflows:
+  default:
+    jobs:
+        - run-lint
