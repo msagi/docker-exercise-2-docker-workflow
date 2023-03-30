@@ -1,5 +1,5 @@
 setup:
-	python3 -m venv ~/.docker-workflow
+	python3 -m venv ./.venv
 	
 install:
 	pip install --upgrade pip &&\
