@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   run-lint:
     docker:
-      - image: python:3.8-slim
+      - image: ubuntu:20.04
     steps:
       - checkout
       - save_cache:
@@ -17,6 +17,7 @@ jobs:
             sudo apt-get install wget
             sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
             sudo chmod +x /bin/hadolint
+            sudo apt-get install python3
             make setup
             . venv/bin/activate
             make install
