@@ -12,12 +12,12 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo apt-get update
-            sudo apt-get ugrade
-            sudo apt-get install wget
-            sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
-            sudo chmod +x /bin/hadolint
-            sudo apt-get install python3
+            apt-get update
+            apt-get ugrade
+            apt-get install wget
+            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+            chmod +x /bin/hadolint
+            apt-get install python3
             make setup
             . venv/bin/activate
             make install
